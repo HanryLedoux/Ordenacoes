@@ -349,7 +349,79 @@ void FuncaoQuickSort() {
     free(vetor);
 }
 
+//Bubble SORT
 
+void BubbleSort(int vetor[], int TAMANHO_VETOR) {
+    int i, j, aux;
+    int n = TAMANHO_VETOR;
+
+    for (i = 0; i < n - 1; i++) {
+        for (j = 0; j < n - i - 1; j++) {
+            if (vetor[j] > vetor[j + 1]) {
+                aux = vetor[j];
+                vetor[j] = vetor[j + 1];
+                vetor[j + 1] = aux;
+            }
+        }
+    }
+}
+
+int FuncaoBubbleSort() {
+    int TAMANHO_VETOR;
+    printf("BubbleSort \n");
+    printf("Selecione o TAMANHO do array: ");
+    scanf("%d", &TAMANHO_VETOR);
+
+    int *vetor = (int *)calloc(TAMANHO_VETOR, sizeof(int));
+
+    FuncaoGerarVetor(vetor, TAMANHO_VETOR);
+
+    clock_t tempo_inicio, tempo_fim;
+    double tempo_execucao;
+
+    tempo_inicio = clock();
+    BubbleSort(vetor, TAMANHO_VETOR);
+    tempo_fim = clock();
+
+    printf("\nElementos do array em ordem crescente:\n");
+    for (int i = 0; i < TAMANHO_VETOR; i++) {
+        printf("%4d ", vetor[i]);
+    }
+    printf("\n");
+
+    tempo_execucao = ((double)(tempo_fim - tempo_inicio)) / CLOCKS_PER_SEC;
+    printf("Tempo de execução: %f segundos\n", tempo_execucao);
+
+    printf("1. LinearSearch \n");
+    printf("2. BinarySearch \n");
+    printf("sair\n");
+    printf("Selecione o método de busca: ");
+    int metodoBusca;
+    scanf("%d", &metodoBusca);
+
+    int valor;
+    
+    switch (metodoBusca) {
+        case 1:
+            printf("Digite o valor a ser buscado: ");
+            scanf("%d", &valor);
+            LinearSearch(vetor, TAMANHO_VETOR, valor);
+            break;
+        case 2:
+            printf("Digite o valor a ser buscado: ");
+            scanf("%d", &valor);
+            BinarySearch(vetor, TAMANHO_VETOR, valor);
+            break;
+        case 3:
+            printf("Saindo...\n");
+            break;
+        default:
+            printf("Opção inválida.\n");
+            break;
+    }
+
+    free(vetor);
+}
 
 //COCKTAIL SORT
 

@@ -349,7 +349,7 @@ void FuncaoQuickSort() {
     free(vetor);
 }
 
-//Bubble SORT
+//BUBBLE SORT
 
 void BubbleSort(int vetor[], int TAMANHO_VETOR) {
     int i, j, aux;
@@ -805,11 +805,12 @@ int main() {
     printf("Escolha o método de ordenação: ");
     printf("\n1. Merge Sort");
     printf("\n2. Quick Sort");
-    printf("\n3. Cocktail Sort");
-    printf("\n4. Insertion Sort");
-    printf("\n5. Selection Sort");
-    printf("\n6. Shell Sort");
-    printf("\n7. Cálculo do tempo médio");
+    printf("\n3. Bubble Sort");
+    printf("\n4. Cocktail Sort");
+    printf("\n5. Insertion Sort");
+    printf("\n6. Selection Sort");
+    printf("\n7. Shell Sort");
+    printf("\n8. Cálculo do tempo médio");
     printf("\nDigite o número da opção: ");
     scanf("%d", &selecao);
 
@@ -821,18 +822,21 @@ int main() {
             FuncaoQuickSort();
             break;
         case 3:
+            FuncaoBubbleSort();
+            break;
+        case 4: 
             FuncaoCockTail();
             break;
-        case 4:
+        case 5:
             FuncaoInsertionSort();
             break;
-        case 5:
+        case 6:
             FuncaoSelectionSort();
             break;
-        case 6:
+        case 7:
             FuncaoShellSort();
             break;
-        case 7:
+        case 8:
             int TAMANHO_VETOR;
             int repeticoes;
             int caso;
@@ -853,6 +857,7 @@ int main() {
             calcularTempoMedio(InsertionSort, TAMANHO_VETOR, "InsertionSort", repeticoes, caso);
             calcularTempoMedio(SelectionSort, TAMANHO_VETOR, "SelectionSort", repeticoes, caso);
             calcularTempoMedio(ShellSort, TAMANHO_VETOR, "ShellSort", repeticoes, caso);
+            calcularTempoMedio(BubbleSort, TAMANHO_VETOR, "BubbleSort", repeticoes, caso);
             calcularTempoMedio(CocktailSort, TAMANHO_VETOR, "CocktailSort", repeticoes, caso);
             calcularTempoMedio(mergeSortWrapper, TAMANHO_VETOR, "MergeSort", repeticoes, caso);
             calcularTempoMedio(quicksortWrapper, TAMANHO_VETOR, "QuickSort", repeticoes, caso);
